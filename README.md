@@ -10,6 +10,6 @@ go to localhost:8080
 ```
 
 ![alt text](./screen4git/main.PNG)
-![alt text](./screen4git/dish_list.png)
-![alt text](./screen4git/add.png)
-![alt text](./screen4git/cart.png)
+![alt text](./screen4git/dish_list.PNG)
+![alt text](./screen4git/add.PNG)
+![alt text](./screen4git/cart.PNG)
