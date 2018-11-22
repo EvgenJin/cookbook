@@ -8,3 +8,5 @@ run client in /client
 npm start
 go to localhost:8080
 ```
+
+![alt text](./client/src/assets.logo.png)
