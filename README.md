@@ -9,4 +9,7 @@ npm start
 go to localhost:8080
 ```
 
-![alt text](./client/src/assets/logo.png)
+![alt text](./screen4git/main.png)
+![alt text](./screen4git/dish_list.png)
+![alt text](./screen4git/add.png)
+![alt text](./screen4git/cart.png)
