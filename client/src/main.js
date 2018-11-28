@@ -8,11 +8,14 @@ import Vuetify from 'vuetify'
 import VueLodash from 'vue-lodash'
 import 'vuetify/dist/vuetify.min.css'
 import './icons.css'
-Vue.use(VueSocketio, 'localhost:7000')
+// Vue.use(VueSocketio, 'localhost:7000')
+const conf = require('../config/config.js');
+Vue.use(VueSocketio, conf.host+':'+conf.socket_port)
 Vue.use(Vuetify)
 Vue.use(VueLodash)
 
 Vue.config.productionTip = false
+
 
 import data from './store.js'
 

@@ -5,6 +5,9 @@ import Add from '@/components/Add'
 import Dish_list from '@/components/Dish_list'
 import Dish from '@/components/Dish'
 import Cart from '@/components/Cart'
+import Edit from '@/components/Edit'
+import test from '@/components/test'
+
 
 Vue.use(Router)
 
@@ -37,6 +40,16 @@ export default new Router({
       path: '/Cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '/Edit',
+      name: 'Edit',
+      component: Edit
+    }, 
+    {
+      path: '/test',
+      name: 'test',
+      component: test
     },    
     // {
     //   path: '/Breakfast',

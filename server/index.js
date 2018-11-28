@@ -4,7 +4,8 @@ const loki = require('lokijs'),
       server = http.createServer(function(request, response){}),
       socketIO = require('socket.io'),
       io = socketIO(server),
-      cors = require('cors')
+      cors = require('cors'),
+      config = require('./config.js');
 ;
 
 // app.use(cors());
@@ -21,7 +22,7 @@ db.loadDatabase({},()=> {
         // read ones
         client.on('getDish',(loki_id) => {
             let data = children.get(loki_id)
-            console.log(data)
+            // console.log(data)
             io.sockets.emit('getDish',data)
         })        
         // create
@@ -38,13 +39,16 @@ db.loadDatabase({},()=> {
             db.saveDatabase();
         })
         // update
-        client.on('updateRec',id => {
-            let obj = children.findOne({['$loki']:id });
-            if (obj) {
-                obj.name = 'NewName';
-                obj.legs = '0';
-                children.update(obj)
-            }
+        client.on('update_dish',data => {
+          // console.log(data.id)
+            let obj = children.findOne({['$loki']:data.id });
+              obj.title = data.title
+              obj.description = data.description
+              obj.category = data.category
+              obj.ingr = data.ingr
+              obj.calory = data.calory
+            children.update(obj);
+            db.saveDatabase();
         })
     })
 
@@ -62,7 +66,7 @@ function filter (array,param) {
         return arr
 }
 
-server.listen(7000,() => console.log('Socket ready on localhost:7000'));
+server.listen(config.port,config.host,() => console.log('Socket ready on'+config.host+' port:'+config.port));
 
 io.on('connection', function (socket) {
     console.log('A client is connected!');   

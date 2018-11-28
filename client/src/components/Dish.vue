@@ -36,6 +36,16 @@
             <span>Добавить в корзину</span>
             <v-icon>add_shopping_cart</v-icon>
         </v-btn>
+        <!--  -->
+        
+        <v-btn
+            @click="router_push('Add',card.$loki)"
+            color="green"
+            flat
+        >
+            <span>Редактировать</span>
+            <v-icon>border_color</v-icon>
+        </v-btn>        
         <v-btn
             @click="delete_dish()"
             color="red"
@@ -43,7 +53,7 @@
         >
             <span>Удалить</span>
             <v-icon>delete_forever</v-icon>
-        </v-btn>        
+        </v-btn>
     </v-bottom-nav>          
 </v-content>
 </template>
@@ -62,9 +72,10 @@ export default {
           else {
               this.$socket.emit('getDish',this.id)
               this.$socket.on('getDish',(data) => {
-                  this.card = data            
+                  this.card = data
+                  console.log(data)       
               })
-      }          
+      }  
     },
     add2cart () {
       //   console.log(this.card)
